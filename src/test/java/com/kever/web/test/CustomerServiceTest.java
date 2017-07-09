@@ -20,11 +20,7 @@ public class CustomerServiceTest {
         // TODO: 2017/7/9 0009 初始化数据库
     }
 
-    @Test
-    public void getCustomListTest() throws Exception {
-        List<Customer> customList = customerService.getCustomList(null);
-        Assert.assertEquals(2, customList.size());
-    }
+
 
     @Test
     public void getCustomTest() throws Exception {
@@ -51,11 +47,16 @@ public class CustomerServiceTest {
 
         Assert.assertTrue(customerService.updateCustom(id, fieldMap));
     }
-
+//
     @Test
     public void deleteCustomerTest() throws Exception {
         long id = 1;
         Assert.assertTrue(customerService.deleteCustomer(id));
     }
-
+//
+    @Test
+    public void getCustomListTest() throws Exception {
+        List<Customer> customList = customerService.getCustomList(null);
+        Assert.assertEquals(2, customList.size());
+    }
 }

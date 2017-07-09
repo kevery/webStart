@@ -1,5 +1,6 @@
 package com.kever.web.service;
 
+import com.kever.web.help.DBHelper;
 import com.kever.web.model.Customer;
 import com.kever.web.util.PropsUtil;
 import org.slf4j.Logger;
@@ -15,32 +16,13 @@ public class CustomerService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CustomerService.class);
 
-    private static final String DRIVER;
-    private static final String URL;
-    private static final String USERNAME;
-    private static final String PASSWORD;
-
-    static {
-        Properties properties = PropsUtil.loadProps("dbconfig.properties");
-        DRIVER = properties.getProperty("jdbc.driver");
-        URL = properties.getProperty("jdbc.url");
-        USERNAME = properties.getProperty("jdbc.user");
-        PASSWORD = properties.getProperty("jdbc.password");
-
-        try {
-            Class.forName(DRIVER);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            LOGGER.error("can not load jdbc driver", e);
-        }
-    }
 
     public List<Customer> getCustomList(String keyword) {
-        Connection connection = null;
+        Connection connection ;
         List<Customer> customers = new ArrayList<>();
         String sql = "select * from customer";
         try {
-            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            connection = DBHelper.getConnection();
             PreparedStatement stmt = connection.prepareStatement(sql);
             ResultSet resultSet = stmt.executeQuery();
             while (resultSet.next()) {
@@ -57,14 +39,8 @@ public class CustomerService {
         } catch (SQLException e) {
             e.printStackTrace();
             LOGGER.error("can not get jdbc connection", e);
-        }finally {
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    LOGGER.error("jdbc connection close fail", e);
-                }
-            }
+        } finally {
+            DBHelper.closeConnection();
         }
         return customers;
     }
