@@ -18,31 +18,9 @@ public class CustomerService {
 
 
     public List<Customer> getCustomList(String keyword) {
-        Connection connection ;
-        List<Customer> customers = new ArrayList<>();
         String sql = "select * from customer";
-        try {
-            connection = DBHelper.getConnection();
-            PreparedStatement stmt = connection.prepareStatement(sql);
-            ResultSet resultSet = stmt.executeQuery();
-            while (resultSet.next()) {
-                Customer customer = new Customer();
-                customer.setId(resultSet.getLong("id"));
-                customer.setName(resultSet.getString("name"));
-                customer.setContact(resultSet.getString("contact"));
-                customer.setTelephone(resultSet.getString("telephone"));
-                customer.setEmail(resultSet.getString("email"));
-                customer.setRemark(resultSet.getString("remark"));
-                customers.add(customer);
-            }
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-            LOGGER.error("can not get jdbc connection", e);
-        } finally {
-            DBHelper.closeConnection();
-        }
-        return customers;
+        return DBHelper.queryEntityList(Customer.class, sql);
     }
 
 
