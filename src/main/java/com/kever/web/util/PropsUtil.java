@@ -41,4 +41,16 @@ public class PropsUtil {
         }
         return props;
     }
+
+    public static String getString(Properties properties, String key) {
+        return getString(properties, key, "");
+    }
+
+    private static String getString(Properties properties, String key,String defaultValue) {
+        String value = defaultValue;
+        if (properties.contains(key)) {
+            value = properties.getProperty(key);
+        }
+        return value;
+    }
 }

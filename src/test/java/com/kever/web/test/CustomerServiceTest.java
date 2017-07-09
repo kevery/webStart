@@ -1,4 +1,4 @@
-package java.com.kever.web.test;
+package com.kever.web.test;
 
 import com.kever.web.model.Customer;
 import com.kever.web.service.CustomerService;
@@ -12,7 +12,7 @@ import java.util.Map;
 public class CustomerServiceTest {
     private final CustomerService customerService;
 
-    public CustomerServiceTest(CustomerService customerService) {
+    public CustomerServiceTest() {
         this.customerService = new CustomerService();
     }
 
@@ -29,8 +29,8 @@ public class CustomerServiceTest {
     @Test
     public void getCustomTest() throws Exception {
         long id = 1;
-        Customer customList = customerService.getCustomer(1);
-        Assert.assertEquals("kever",customList.getName());
+        Customer customList = customerService.getCustomer(id);
+        Assert.assertEquals("kever", customList.getName());
     }
 
     @Test
