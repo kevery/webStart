@@ -2,19 +2,16 @@ package com.kever.web.service;
 
 import com.kever.web.help.DBHelper;
 import com.kever.web.model.Customer;
-import com.kever.web.util.PropsUtil;
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
+
 
 public class CustomerService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CustomerService.class);
+    private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(CustomerService.class);
+
 
 
     public List<Customer> getCustomList(String keyword) {
@@ -25,23 +22,21 @@ public class CustomerService {
 
 
     public Customer getCustomer(long id) {
-        // TODO: 2017/7/9 0009
-        return null;
+        String sql = "select * from customer where id=?";
+
+        return DBHelper.queryEntity(Customer.class, sql, id);
     }
 
     public boolean createCustomer(Map<String, Object> fieldMap) {
-        // TODO: 2017/7/9 0009
-        return false;
+        return DBHelper.insertEntity(Customer.class, fieldMap);
     }
 
 
     public boolean updateCustom(long id, Map<String, Object> fieldMap) {
-        // TODO: 2017/7/9 0009
-        return false;
+        return DBHelper.updateEntity(Customer.class, fieldMap, id);
     }
 
     public boolean deleteCustomer(long id) {
-        // TODO: 2017/7/9 0009
-        return false;
+        return DBHelper.deleteEntity(Customer.class, id);
     }
 }

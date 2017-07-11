@@ -1,8 +1,10 @@
 package com.kever.web.test;
 
+import com.kever.web.help.DBHelper;
 import com.kever.web.model.Customer;
 import com.kever.web.service.CustomerService;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -16,8 +18,10 @@ public class CustomerServiceTest {
         this.customerService = new CustomerService();
     }
 
-    public void init() {
-        // TODO: 2017/7/9 0009 初始化数据库
+    @Before
+    public void init() throws Exception{
+        String file = "sql/customer_init.sql";
+        DBHelper.executeSqlFile(file);
     }
 
 
@@ -58,5 +62,10 @@ public class CustomerServiceTest {
     public void getCustomListTest() throws Exception {
         List<Customer> customList = customerService.getCustomList(null);
         Assert.assertEquals(2, customList.size());
+    }
+
+    @Test
+    public void getTableNameTest() throws Exception {
+
     }
 }
