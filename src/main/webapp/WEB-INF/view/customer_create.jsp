@@ -11,7 +11,6 @@
     <title>管理客户</title>
 </head>
 <body>
-11${currentTime}
 <%--TODO--%>
 </body>
 </html>

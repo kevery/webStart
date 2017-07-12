@@ -66,6 +66,15 @@ public class CustomerServiceTest {
 
     @Test
     public void getTableNameTest() throws Exception {
+        Map<String, String> map1 = new HashMap<>();
+        map1.put("1", "1");
 
+        Map<String, String> map2 = new HashMap<>();
+        map2.put("1", "1");
+        System.out.println(map1.hashCode());
+        System.out.println(map2.hashCode());
     }
+
+
+
 }

@@ -114,9 +114,7 @@ public class DBHelper {
         try {
             Connection connection = getConnection();
             entity = QUERY_RUNNER.query(connection, sql, new BeanHandler<>(entityClass), params);
-            int a= 1 / 0;
         } catch (Exception e) {
-            e.printStackTrace();
             LOGGER.error("query entity list fail", e);
             throw new RuntimeException(e);
         }
