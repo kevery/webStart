@@ -28,10 +28,17 @@ public class ConfigHelp {
     public static String getJdbcBasePackage() {
         return PropsUtil.getString(CONFIG_PROPS, ConfigConstant.BASE_PACKAGE);
     }
+
     public static String getJdbcJspPath() {
         return PropsUtil.getString(CONFIG_PROPS, ConfigConstant.JSP_PATH);
     }
+
     public static String getJdbcAssertPath() {
         return PropsUtil.getString(CONFIG_PROPS, ConfigConstant.ASSERT_PATH);
     }
+
+    public static String getAppJspPath() {
+        return PropsUtil.getString(CONFIG_PROPS, ConfigConstant.JSP_PATH);
+    }
+
 }

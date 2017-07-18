@@ -1,6 +1,5 @@
 package com.kever.web.controller;
 
-import com.kever.web.help.DBHelper;
 import com.kever.web.model.Customer;
 import com.kever.web.service.CustomerService;
 
@@ -21,7 +20,6 @@ public class CustomerCreateServlet extends HttpServlet {
         try {
             CustomerService customerService = new CustomerService();
             Customer customer = customerService.getCustomer(1);
-            int a = 1 / 0;
             request.getRequestDispatcher("/WEB-INF/view/customer_create.jsp").forward(request,response);
         } catch (Exception e) {
             e.printStackTrace();

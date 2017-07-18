@@ -2,7 +2,7 @@ package com.kever.web.bean;
 
 import java.lang.reflect.Method;
 
-public class Handle {
+public class    Handle {
     private Class<?> controllerClass;
 
     private Method actionMethod;
