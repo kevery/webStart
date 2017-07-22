@@ -6,7 +6,7 @@ public class HelperLoader {
     public static void init() {
         Class<?>[] classList = {ClassHelp.class, BeanHelp.class, IocHelp.class, ControllerHelp.class};
         for (Class<?> aClass : classList) {
-            ClassUtil.loadClass(aClass.getName(),false);
+            ClassUtil.loadClass(aClass.getName(),true);
         }
     }
 }

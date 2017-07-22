@@ -31,7 +31,7 @@ public class ClassHelp {
      */
     public static Set<Class<?>> getClassSetService() {
         Set<Class<?>> classSet = new HashSet<>();
-        for (Class<?> aClass : classSet) {
+        for (Class<?> aClass : CLASS_SET) {
             if (aClass.isAnnotationPresent(Service.class)) {
                 classSet.add(aClass);
             }
@@ -44,7 +44,7 @@ public class ClassHelp {
      */
     public static Set<Class<?>> getClassSetController() {
         Set<Class<?>> classSet = new HashSet<>();
-        for (Class<?> aClass : classSet) {
+        for (Class<?> aClass : CLASS_SET) {
             if (aClass.isAnnotationPresent(Controller.class)) {
                 classSet.add(aClass);
             }
@@ -57,7 +57,7 @@ public class ClassHelp {
      */
     public static Set<Class<?>> getClassSetBeans() {
         Set<Class<?>> classSet = new HashSet<>();
-        for (Class<?> aClass : classSet) {
+        for (Class<?> aClass : CLASS_SET) {
             if (aClass.isAnnotationPresent(Service.class)||aClass.isAnnotationPresent(Controller.class)) {
                 classSet.add(aClass);
             }

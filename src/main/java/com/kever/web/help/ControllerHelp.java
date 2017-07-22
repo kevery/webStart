@@ -23,7 +23,7 @@ public class ControllerHelp {
                         if (declaredMethod.isAnnotationPresent(Action.class)) {
                             Action action = declaredMethod.getAnnotation(Action.class);
                             String mapping = action.value();
-                            if (mapping.matches("\\w+:/\\w")) {
+                            if (mapping.matches("\\w+:/\\w*")){
                                 String[] array = mapping.split(":");
                                 String requestMethod = array[0];
                                 String requestPath = array[1];

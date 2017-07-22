@@ -50,7 +50,7 @@ public class PropsUtil {
 
     private static String getString(Properties properties, String key, String defaultValue) {
         String value = defaultValue;
-        if (properties.contains(key)) {
+        if (properties.containsKey(key)) {
             value = properties.getProperty(key);
         }
         return value;

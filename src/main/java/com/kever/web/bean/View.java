@@ -1,5 +1,6 @@
 package com.kever.web.bean;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class View {
@@ -13,6 +14,10 @@ public class View {
      */
     public Map<String, Object> model;
 
+    public View() {
+        model = new HashMap<>();
+    }
+
     public View(String path, Map<String, Object> model) {
         this.path = path;
         this.model = model;
@@ -21,6 +26,10 @@ public class View {
     public View addModel(String key, Object value) {
         model.put(key, value);
         return this;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 
     public String getPath() {

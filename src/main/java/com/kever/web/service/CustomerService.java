@@ -1,5 +1,6 @@
 package com.kever.web.service;
 
+import com.kever.web.annotation.Service;
 import com.kever.web.help.DBHelper;
 import com.kever.web.model.Customer;
 import org.slf4j.LoggerFactory;
@@ -8,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 
+@Service
 public class CustomerService {
 
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(CustomerService.class);
